@@ -1,5 +1,7 @@
 FROM alpine:3.12
 
+ENV PROTOBUF_VERSION=3.20.1
+
 # Install Protoc
 ################
 RUN set -ex \
@@ -18,7 +20,7 @@ RUN set -ex \
   \
   && mkdir -p /tmp/protobufs \
   && cd /tmp/protobufs \
-  && git clone https://github.com/google/protobuf.git \
+  && git clone -b v${PROTOBUF_VERSION} https://github.com/google/protobuf.git \
   && cd protobuf \
   && ./autogen.sh \
   && ./configure --prefix=/usr \
