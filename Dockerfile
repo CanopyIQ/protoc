@@ -22,7 +22,7 @@ RUN set -ex \
   && curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOBUF_VERSION}/protobuf-all-${PROTOBUF_VERSION}.tar.gz \
   && tar xzf protobuf-all-${PROTOBUF_VERSION}.tar.gz \
   && cd protobuf-${PROTOBUF_VERSION} \
-  && ./configure --disable-shared \
+  && ./configure --prefix=/usr \
   && make \
   && make install \
   && cd \
